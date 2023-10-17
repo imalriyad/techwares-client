@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "brandName": "Apple",
+    "brandImage": "https://i.postimg.cc/BQh5KTrM/apple-11.png"
+  },
+  {
+    "id": 2,
+    "brandName": "Samsung",
+    "brandImage": "https://i.postimg.cc/8zjRBFDD/samsung.png"
+  },
+  {
+    "id": 3,
+    "brandName": "Oppo",
+    "brandImage": "https://download.logo.wine/logo/Oppo/Oppo-Logo.wine.png"
+  },
+  {
+    "id": 4,
+    "brandName": "Xiaomi",
+    "brandImage": "https://i.postimg.cc/0NQMphq4/xiaomi-33359.png"
+  },
+  {
+    "id": 5,
+    "brandName": "Huawei",
+    "brandImage": "https://i.postimg.cc/9MjyhJ9F/huawei-2.png"
+  },
+  {
+    "id": 6,
+    "brandName": "Vivo",
+    "brandImage": "https://i.postimg.cc/T16TcNsm/Vivo-Logo.png"
+  }
+]

@@ -4,26 +4,28 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import AddProduct from "../pages/AddProduct";
 import Contact from "../pages/Contact";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
       },
       {
-        path:'About',
+        path:'/About',
         element:<About></About>
       },
       {
-        path:'Add Product',
+        path:'/Add Product',
         element:<AddProduct></AddProduct>
       },
       {
-        path:'Contact',
+        path:'/Contact',
         element: <Contact></Contact>
       }
     ],

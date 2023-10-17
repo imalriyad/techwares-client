@@ -2,11 +2,11 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navMenu = ['Home','Add Product','About','Contact']
-    const links = navMenu.map(link => <NavLink to={link ==='Home'? '/':link } className="text-base font-medium ml-7" key={link}>{link}</NavLink>)
+    const links = navMenu.map(link => <NavLink to={link ==='Home'? '/':link } className="text-base font-semibold text-[#00203FFF] ml-7" key={link}>{link}</NavLink>)
 
   return (
     <div>
-      <div className="navbar">
+      <div className="navbar max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
