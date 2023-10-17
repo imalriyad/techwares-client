@@ -2,7 +2,7 @@ import { FaCartArrowDown } from 'react-icons/fa';
 const Hero = () => {
   return (
     <div className='max-w-screen-xl mx-auto mt-4'>
-      <div className="hero lg:h-[60vh] h-auto px-4 bg-mainColor rounded-md ">
+      <div className="hero lg:h-[500px] px-4 bg-mainColor rounded-md ">
         <div className="lg:flex lg:flex-row flex flex-col-reverse items-center gap-5">
           <div className="max-w-screen-sm pb-5">
             <h1 className="md:text-5xl text-2xl	font-bold">Discover Smartphones & Accessories</h1>
