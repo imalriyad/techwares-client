@@ -5,6 +5,7 @@ import About from "../pages/About";
 import AddProduct from "../pages/AddProduct";
 import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
+import CategoryProduct from "../pages/CategoryProduct";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
       {
         path:'/Contact',
         element: <Contact></Contact>
+      },
+      {
+        path:'/products/:brands',
+        element: <CategoryProduct></CategoryProduct>,
+        loader:({params})=> fetch(`http://localhost:5000/products/${params.brands}`)
       }
     ],
   },

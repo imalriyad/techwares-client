@@ -1,10 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import swal from 'sweetalert';
 
 const AddProduct = () => {
   const addProductHandler = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const form = event.target;
     const productName = form.productName.value;
     const brandName = form.brandName.value;
@@ -22,7 +23,21 @@ const AddProduct = () => {
       productDescription,
       productphotoUrl,
     };
-    console.log(newProduct);
+
+    fetch("http://localhost:5000/products", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newProduct),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.insertedId){
+        swal("Yay!", "Product successfully added!", "success");
+      }
+    })
+
   };
   return (
     <div>
@@ -119,7 +134,7 @@ const AddProduct = () => {
           <input
             className="btn col-span-2 btn-neutral"
             type="submit"
-            value="Add Coffe"
+            value="Add Product"
           />
         </form>
       </div>
