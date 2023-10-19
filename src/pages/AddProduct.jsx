@@ -1,9 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const AddProduct = () => {
+  const navaigate = useNavigate();
+  const goBack = () => {
+    navaigate(-1);
+  };
   const addProductHandler = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -41,12 +45,14 @@ const AddProduct = () => {
   return (
     <div>
       <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
-        <Link to={"/"}>
-          <button className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral">
-            <AiOutlineArrowLeft className="text-xl" />
-            Go Back
-          </button>
-        </Link>
+        <button
+          onClick={goBack}
+          className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral"
+        >
+          <AiOutlineArrowLeft className="text-xl" />
+          Go Back
+        </button>
+
         <div className="md:text-center px-4">
           <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">
             Add New Product

@@ -1,12 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useLoaderData } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const products = useLoaderData();
-
+  const navigate = useNavigate()
+  const goBack = ()=>{
+    navigate(-1)
+  }
   const {
     _id,
     productName,
@@ -37,7 +39,7 @@ const UpdateProduct = () => {
       productDescription,
       productphotoUrl,
     };
-    fetch(`http://localhost:5000/products/${_id}`, {
+    fetch(`http://localhost:5000/products/update/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -56,12 +58,12 @@ const UpdateProduct = () => {
     <div>
       <div>
         <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
-          <Link to={"/"}>
-            <button className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral">
+          
+            <button onClick={goBack} className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral">
               <AiOutlineArrowLeft className="text-xl" />
               Go Back
             </button>
-          </Link>
+         
           <div className="md:text-center px-4">
             <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">
               Update Existing Product

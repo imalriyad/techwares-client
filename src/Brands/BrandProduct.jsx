@@ -49,12 +49,13 @@ const BrandProduct = () => {
   }, [currentIndex]);
 
   return (
-    <div className="mx-auto mt-5 max-w-screen-2xl ">
+   
+     <div className="mx-auto mt-5  max-w-screen-2xl relative z-[0]">
       <Swiper
         navigation={true}
         loop={true}
         modules={[Navigation]}
-        className="mySwiper rounded-lg"
+        className="mySwiper rounded-lg "
       >
         {loadedProduct.map((item) => (
           <SwiperSlide key={item._id}>

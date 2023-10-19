@@ -1,15 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    const navMenu = ['Home','Add Product','About','Contact']
-    const links = navMenu.map(link => <NavLink to={link ==='Home'? '/':link } className="text-base font-semibold text-secondColor ml-7" key={link}>{link}</NavLink>)
+  const navMenu = ["Home", "Add Product", "About", "Contact"];
+  const links = navMenu.map((link) => (
+    <NavLink
+      to={link === "Home" ? "/" : link}
+      className="text-base font-semibold text-secondColor ml-7"
+      key={link}
+    >
+      {link}
+    </NavLink>
+  ));
 
   return (
     <div>
       <div className="navbar max-w-screen-xl mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+            <label
+              tabIndex={0}
+              className="btn text-[#ffff] btn-ghost lg:hidden"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -27,7 +38,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-mainColor w-52"
             >
               {links}
             </ul>
@@ -41,15 +52,13 @@ const Navbar = () => {
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            {links}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
 
         <div className="navbar-end ">
-          <div className="dropdown dropdown-end ">
+          <div className="dropdown dropdown-end mr-3">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator text-secondColor" >
+              <div className="indicator text-secondColor">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-7 w-7"
@@ -75,14 +84,18 @@ const Navbar = () => {
                 <span className="font-bold text-lg">8 Items</span>
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+                  <Link
+                    to={"/cart"}
+                    className="btn bg-mainColor hover:bg-mainColor text-[#ffff] btn-block"
+                  >
+                    {" "}
+                    <span>My Cart</span>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end ">
+          <div className="dropdown dropdown-end  ">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
@@ -101,8 +114,8 @@ const Navbar = () => {
               <li>
                 <a>Settings</a>
               </li>
-              <li>
-                <a>Logout</a>
+              <li className="btn text-mainColor font-bold">
+                <p>Logout</p>
               </li>
             </ul>
           </div>

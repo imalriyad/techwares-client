@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
-const Card = ({ item }) => {
+const Card = ({ item, deletebtn }) => {
   const {
     _id,
     productName,
@@ -10,9 +10,9 @@ const Card = ({ item }) => {
     productPrice,
     productRating,
     productphotoUrl,
-    productDescription
+    productDescription,
   } = item;
-  
+
   return (
     <div>
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
@@ -25,7 +25,11 @@ const Card = ({ item }) => {
               {productName}
             </p>
             <p className="flex items-center font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-              <img src="https://i.postimg.cc/QNyv3nrK/taka-1.png" alt="" />{" "}
+              <img
+                src="https://i.postimg.cc/vTTtnf2T/taka-2.png"
+                alt=""
+                className="w-4"
+              />{" "}
               {productPrice}
             </p>
           </div>
@@ -70,34 +74,45 @@ const Card = ({ item }) => {
           />
 
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-           {productDescription}
+            {productDescription}
           </p>
         </div>
         <div className="p-6 flex gap-5 pt-0">
-          <Link
-            to={`/products/${_id}`}
-            className="flex gap-1 justify-center w-full select-none rounded-lg bg-base-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            <img
-              src="https://i.postimg.cc/Twbyvzn9/file.png"
-              className="w-4"
-              alt=""
-            />{" "}
-            Details
-          </Link>
-          <Link
-            to={`/products/${_id}`}
-            className="flex flex-row w-full gap-1 justify-center select-none rounded-lg bg-base-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-          >
-            <img
-              src="https://i.postimg.cc/6pVpJTBb/edit-info.png"
-              className="w-4"
-              alt=""
-            />{" "}
-            Update
-          </Link>
+          {deletebtn ? (
+            <button
+              onClick={() => deletebtn(_id)}
+              className="btn bg-mainColor hover:bg-mainColor text-[#fff] w-full"
+            >
+              Delete
+            </button>
+          ) : (
+            <>
+              <Link
+                to={`/products/${_id}`}
+                className="flex gap-1 justify-center w-full select-none rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold bg-mainColor text-[#fff] uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+              >
+                <img
+                  src="https://i.postimg.cc/Twbyvzn9/file.png"
+                  className="w-4"
+                  alt=""
+                />{" "}
+                Details
+              </Link>
+              <Link
+                to={`/products/update/${_id}`}
+                className="flex flex-row w-full gap-1 justify-center select-none bg-mainColor text-[#fff] rounded-lg  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                type="button"
+              >
+                <img
+                  src="https://i.postimg.cc/6pVpJTBb/edit-info.png"
+                  className="w-4"
+                  alt=""
+                />{" "}
+                Update
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
