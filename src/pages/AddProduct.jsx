@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 const AddProduct = () => {
   const addProductHandler = (event) => {
@@ -31,13 +31,12 @@ const AddProduct = () => {
       },
       body: JSON.stringify(newProduct),
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.insertedId){
-        swal("Yay!", "Product successfully added!", "success");
-      }
-    })
-
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          swal("Yay!", "Product successfully added!", "success");
+        }
+      });
   };
   return (
     <div>
@@ -49,7 +48,9 @@ const AddProduct = () => {
           </button>
         </Link>
         <div className="md:text-center px-4">
-          <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">Add New Product</h1>
+          <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">
+            Add New Product
+          </h1>
           <p className="text-sm text-secondColor">
             In the world of electronics and technology, we understand that
             captivating content can divert your attention when you're exploring
@@ -127,7 +128,7 @@ const AddProduct = () => {
               placeholder="Enter product description"
               name="productDescription"
               required
-              className="textarea focus:outline-none textarea-bordered textarea-sm w-full "
+              className="textarea text-[#000000] focus:outline-none textarea-bordered  textarea-sm w-full "
             ></textarea>
           </label>
 

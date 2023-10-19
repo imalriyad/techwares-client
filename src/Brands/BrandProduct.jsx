@@ -48,7 +48,6 @@ const BrandProduct = () => {
     };
   }, [currentIndex]);
 
-  console.log(currentIndex);
   return (
     <div className="mx-auto mt-5 max-w-screen-2xl ">
       <Swiper
@@ -78,7 +77,7 @@ const BrandProduct = () => {
         ))}
       </Swiper>
       
-      <div className="grid gap-5 mt-10 lg:grid-cols-3 grid-cols-1 mx-auto max-w-screen-2xl">
+      <div className="grid gap-5 px-4 mt-10 lg:grid-cols-3 grid-cols-1 mx-auto max-w-screen-2xl">
         {
           loadedProduct?.map(item => <Card key={item._id} item={item}></Card>)
         }

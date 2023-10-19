@@ -1,20 +1,22 @@
 /* eslint-disable react/prop-types */
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 const Card = ({ item }) => {
-    
   const {
+    _id,
     productName,
     brandName,
     productType,
     productPrice,
     productRating,
     productphotoUrl,
+    productDescription
   } = item;
-  console.log(item);
+  
   return (
     <div>
       <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white  rounded-xl bg-clip-border">
+        <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white md:h-96 rounded-xl bg-clip-border">
           <img src={productphotoUrl} className="object-fill w-full h-full" />
         </div>
         <div className="p-6">
@@ -28,11 +30,11 @@ const Card = ({ item }) => {
             </p>
           </div>
           <div className="flex justify-between">
-            <div className="badge badge-neutral my-2">{brandName}</div>{" "}
+            <div className="badge badge-neutral my-2">{brandName}</div>
             <div className="badge badge-neutral my-2">{productType}</div>
           </div>
           <Rating
-            className="text-orange-400"
+            className="text-[#f39c12]"
             emptySymbol={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -68,12 +70,12 @@ const Card = ({ item }) => {
           />
 
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-            With plenty of talk and listen time, voice-activated Siri access,
-            and an available wireless charging case.
+           {productDescription}
           </p>
         </div>
         <div className="p-6 flex gap-5 pt-0">
-          <button
+          <Link
+            to={`/products/${_id}`}
             className="flex gap-1 justify-center w-full select-none rounded-lg bg-base-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
           >
@@ -83,9 +85,10 @@ const Card = ({ item }) => {
               alt=""
             />{" "}
             Details
-          </button>
-          <button
-            className="flex gap-1 justify-center w-full select-none rounded-lg bg-base-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          </Link>
+          <Link
+            to={`/products/${_id}`}
+            className="flex flex-row w-full gap-1 justify-center select-none rounded-lg bg-base-300 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             type="button"
           >
             <img
@@ -94,7 +97,7 @@ const Card = ({ item }) => {
               alt=""
             />{" "}
             Update
-          </button>
+          </Link>
         </div>
       </div>
     </div>

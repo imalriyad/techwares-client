@@ -1,7 +1,7 @@
 import { FaCartArrowDown } from 'react-icons/fa';
 const Hero = () => {
   return (
-    <div>
+    <div className='mt-4'>
       <div style={{
         backgroundImage:'url(https://i.postimg.cc/rpjXPnbY/Pngtree-2-5d-notebook-gold-online-928702.jpg)'
       }} className="hero lg:h-[600px] rounded-md ">
