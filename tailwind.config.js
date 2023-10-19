@@ -3,8 +3,8 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
-      'blueBlack': "#00203FFF",
-      'mainColor': "#ADEFD1FF",
+      'secondColor': "#F9F8F8",
+      'mainColor': "#9D3534",
     },
   },
   plugins: [require("daisyui")],

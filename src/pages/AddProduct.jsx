@@ -43,14 +43,14 @@ const AddProduct = () => {
     <div>
       <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
         <Link to={"/"}>
-          <button className="btn bg-[#29c47e] hover:bg-[#29c47e]">
+          <button className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral">
             <AiOutlineArrowLeft className="text-xl" />
             Go Back
           </button>
         </Link>
         <div className="md:text-center px-4">
-          <h1 className="text-3xl pt-5 mb-5 font-bold">Add New Product</h1>
-          <p className="text-sm">
+          <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">Add New Product</h1>
+          <p className="text-sm text-secondColor">
             In the world of electronics and technology, we understand that
             captivating content can divert your attention when you're exploring
             a page's design
@@ -58,16 +58,16 @@ const AddProduct = () => {
         </div>
         <form
           onSubmit={addProductHandler}
-          className="grid px-4 md:px-10 gap-5 grid-cols-2 py-12"
+          className="grid px-4 md:px-10 text-secondColor gap-5 grid-cols-2 py-12"
         >
-          <label className="flex  flex-col" htmlFor="">
+          <label className="flex flex-col" htmlFor="">
             Name{" "}
             <input
               type="text"
               name="productName"
               required
               placeholder="Enter product name"
-              className="input focus:outline-none input-bordered w-full"
+              className="input focus:outline-none text-[#000000]  input-bordered w-full"
             />
           </label>
           <label className="flex flex-col" htmlFor="">
@@ -77,7 +77,7 @@ const AddProduct = () => {
               name="brandName"
               required
               placeholder="Enter brand Name"
-              className="input focus:outline-none input-bordered w-full "
+              className="input focus:outline-none text-[#000000]  input-bordered w-full "
             />
           </label>
           <label className="flex flex-col" htmlFor="">
@@ -87,7 +87,7 @@ const AddProduct = () => {
               name="productType"
               required
               placeholder="Enter product type"
-              className="input focus:outline-none input-bordered w-full "
+              className="input focus:outline-none text-[#000000]  input-bordered w-full "
             />
           </label>
           <label className="flex flex-col" htmlFor="">
@@ -97,7 +97,7 @@ const AddProduct = () => {
               name="productPrice"
               required
               placeholder="Enter product price"
-              className="input focus:outline-none input-bordered w-full "
+              className="input focus:outline-none text-[#000000]  input-bordered w-full "
             />
           </label>
           <label className="flex flex-col" htmlFor="">
@@ -107,7 +107,7 @@ const AddProduct = () => {
               name="productRating"
               required
               placeholder="Enter product Rating"
-              className="input focus:outline-none input-bordered w-full "
+              className="input focus:outline-none text-[#000000]  input-bordered w-full "
             />
           </label>
           <label className="flex flex-col" htmlFor="">
@@ -117,7 +117,7 @@ const AddProduct = () => {
               required
               name="productphotoUrl"
               placeholder="Enter product photo URL"
-              className="input focus:outline-none input-bordered w-full "
+              className="input focus:outline-none text-[#000000]  input-bordered w-full "
             />
           </label>
 

@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 const BrandProduct = () => {
   const loadedProduct = useLoaderData();
@@ -38,14 +39,13 @@ const BrandProduct = () => {
       const newIndex = Math.abs(
         isFirstSlide ? sliderImg.length - 1 : currentIndex - 1
       );
-      setIndex(newIndex)
-    }
+      setIndex(newIndex);
+    };
 
-      prevButton.addEventListener("click", handlePrevClick);
-      return () => {
-        prevButton.removeEventListener("click", handlePrevClick);
-      }
-    
+    prevButton.addEventListener("click", handlePrevClick);
+    return () => {
+      prevButton.removeEventListener("click", handlePrevClick);
+    };
   }, [currentIndex]);
 
   console.log(currentIndex);
@@ -64,18 +64,25 @@ const BrandProduct = () => {
                 backgroundImage: `url(${sliderImg[currentIndex]})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
-                
               }}
               className="md:flex flex-row-reverse md:h-[600px] items-center "
             >
               <div className="flex flex-col relative items-center">
-              <img src={item.productphotoUrl} className="" alt="" />
-              <h1 className="md:text-xl p-1 rounded absolute bottom-4 bg-[#f39c12] font-bold text-[#f5f6fa]">{item.productName}</h1>
+                <img src={item.productphotoUrl} className="" alt="" />
+                <h1 className="md:text-xl p-1 rounded absolute bottom-4 bg-[#f39c12] font-bold text-[#f5f6fa]">
+                  {item.productName}
+                </h1>
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+      
+      <div className="grid gap-5 mt-10 lg:grid-cols-3 grid-cols-1 mx-auto max-w-screen-2xl">
+        {
+          loadedProduct?.map(item => <Card key={item._id} item={item}></Card>)
+        }
+      </div>
     </div>
   );
 };

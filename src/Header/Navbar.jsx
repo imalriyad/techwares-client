@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const navMenu = ['Home','Add Product','About','Contact']
-    const links = navMenu.map(link => <NavLink to={link ==='Home'? '/':link } className="text-base font-semibold text-[#00203FFF] ml-7" key={link}>{link}</NavLink>)
+    const links = navMenu.map(link => <NavLink to={link ==='Home'? '/':link } className="text-base font-semibold text-secondColor ml-7" key={link}>{link}</NavLink>)
 
   return (
     <div>
@@ -46,13 +46,13 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="navbar-end">
+        <div className="navbar-end ">
           <div className="dropdown dropdown-end ">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
+              <div className="indicator text-secondColor" >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="h-7 w-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
