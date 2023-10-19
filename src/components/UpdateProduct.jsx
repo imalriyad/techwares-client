@@ -2,6 +2,7 @@
 import { useLoaderData } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const products = useLoaderData();
@@ -44,7 +45,11 @@ const UpdateProduct = () => {
       body: JSON.stringify(UpdatedProduct),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          swal("Yay!", "Product successfully updated", "success");
+        }
+      });
   };
 
   return (
