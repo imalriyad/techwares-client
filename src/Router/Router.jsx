@@ -9,6 +9,8 @@ import BrandProduct from "../Brands/BrandProduct";
 import UpdateProduct from "../components/UpdateProduct";
 import ProductDetails from "../Brands/ProductDetails";
 import Cart from "../components/Cart";
+import SignUp from "../form/SignUp";
+import Login from "../Form/Login";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/Contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/SignUp",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/Login",
+        element: <Login></Login>,
       },
       {
         path: "/products/brands/:brands",
