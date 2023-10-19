@@ -1,9 +1,12 @@
 import { FaCartArrowDown } from 'react-icons/fa';
 const Hero = () => {
   return (
-    <div className='max-w-screen-xl mx-auto mt-4'>
-      <div className="hero lg:h-[500px] px-4 bg-mainColor rounded-md ">
-        <div className="lg:flex lg:flex-row flex flex-col-reverse items-center gap-5">
+    <div>
+      <div style={{
+        backgroundImage:'url(https://i.postimg.cc/rpjXPnbY/Pngtree-2-5d-notebook-gold-online-928702.jpg)'
+      }} className="hero lg:h-[600px] rounded-md ">
+          <div className="hero-overlay bg-opacity-40 "></div>
+        <div className="lg:flex lg:flex-row flex flex-col-reverse items-center gap-5 text-[#fff]">
           <div className="max-w-screen-sm pb-5">
             <h1 className="md:text-5xl text-2xl	font-bold">Discover Smartphones & Accessories</h1>
             <p className="py-6">
