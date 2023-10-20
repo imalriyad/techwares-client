@@ -15,7 +15,7 @@ const Card = ({ item, deletebtn }) => {
 
   return (
     <div>
-      <div className="relative flex flex-col text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
+      <div className="relative flex flex-col border border-secondColor text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
         <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white md:h-96 rounded-xl bg-clip-border">
           <img src={productphotoUrl} className="object-fill w-full h-full" />
         </div>

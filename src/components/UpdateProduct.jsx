@@ -57,7 +57,7 @@ const UpdateProduct = () => {
         <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
           <button
             onClick={goBack}
-            className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral"
+            className="btn btn-sm  m-4  border-none"
           >
             <AiOutlineArrowLeft className="text-xl" />
             Go Back
@@ -156,7 +156,7 @@ const UpdateProduct = () => {
             </label> */}
 
             <input
-              className="btn col-span-2 btn-neutral"
+              className="btn col-span-2 "
               type="submit"
               value="Add Product"
             />

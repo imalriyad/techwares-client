@@ -1,9 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import toast from "react-hot-toast";
 import auth from "../firebase/firebase.config";
 import { signOut } from "firebase/auth";
+
+import { MdOutlineLightMode, MdOutlineNightlight } from "react-icons/md";
 
 const Navbar = () => {
   const navMenu = ["Home", "Add Product", "About", "Contact"];
@@ -16,7 +18,7 @@ const Navbar = () => {
       {link}
     </NavLink>
   ));
-  const { cartLength, user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const logOutHandler = () => {
@@ -27,6 +29,16 @@ const Navbar = () => {
       })
       .catch((err) => console.log(err));
   };
+
+  const [isDark, setDark] = useState(false);
+  if (isDark) {
+    document.body.style.backgroundColor = "black";
+    document.body.style.color = "white";
+  }
+  if (!isDark) {
+    document.body.style.backgroundColor = "white";
+    document.body.style.color = "black";
+  }
 
   return (
     <div>
@@ -72,6 +84,15 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end ">
+          <div onClick={() => setDark(!isDark)}>
+            {" "}
+            {isDark ? (
+              <MdOutlineLightMode className="text-[#ffff] text-3xl cursor-pointer"></MdOutlineLightMode>
+            ) : (
+              <MdOutlineNightlight className="text-[#ffff] text-3xl cursor-pointer"></MdOutlineNightlight>
+            )}
+          </div>
+
           <div className="dropdown dropdown-end mr-3">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
               <div className="indicator text-secondColor">
@@ -89,9 +110,7 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">
-                  {cartLength}
-                </span>
+                <span className="badge badge-sm indicator-item"></span>
               </div>
             </label>
             <div
@@ -123,11 +142,11 @@ const Navbar = () => {
             <div className="dropdown dropdown-end  ">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-12 rounded-full border-2 border-[#ffff]">
-                {user?.photoURL ? (
-                  <img src={`${user?.photoURL}`} alt="" />
-                ) : (
-                  <img src="https://i.ibb.co/3CNtLPY/blankdp.png" />
-                )}
+                  {user?.photoURL ? (
+                    <img src={`${user?.photoURL}`} alt="" />
+                  ) : (
+                    <img src="https://i.ibb.co/3CNtLPY/blankdp.png" />
+                  )}
                 </div>
               </label>
               <ul

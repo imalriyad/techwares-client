@@ -9,7 +9,6 @@ import {
 import auth from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 const Context = ({ children }) => {
-  const [cartLength, setCartLength] = useState(0);
   const [user, setUser] = useState(null);
   const [loading,setLoading] = useState(true)
 
@@ -38,8 +37,6 @@ const Context = ({ children }) => {
     [];
 
   const authentications = {
-    setCartLength,
-    cartLength,
     creatUserWithEmail,
     siginInWithEmail,
     handleGoogleLogin,
