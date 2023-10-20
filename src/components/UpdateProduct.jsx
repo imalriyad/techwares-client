@@ -37,7 +37,7 @@ const UpdateProduct = () => {
       productphotoUrl,
     };
     fetch(
-      `https://teach-wares-server-imalriyad.vercel.app/products/update/${_id}`,
+      `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products/update/${_id}`,
       {
         method: "PATCH",
         headers: {

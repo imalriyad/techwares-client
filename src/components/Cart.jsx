@@ -5,10 +5,12 @@ import { AuthContext } from "../Context/Context";
 
 const Cart = () => {
   const [cartProduct, setCartProduct] = useState([]);
-  const { user ,setCartItem} = useContext(AuthContext);
+  const { user, setCartItem } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`https://teach-wares-server-imalriyad.vercel.app/cart/${user.email}`)
+    fetch(
+      `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/cart/${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setCartProduct(data));
   }, [user.email]);
@@ -22,9 +24,12 @@ const Cart = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`https://teach-wares-server-imalriyad.vercel.app/cart/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/cart/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -37,7 +42,7 @@ const Cart = () => {
                 (item) => item._id !== id
               );
               setCartProduct(remainigProduct);
-              setCartItem(remainigProduct)
+              setCartItem(remainigProduct);
             }
           });
       }

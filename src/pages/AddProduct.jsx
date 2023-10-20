@@ -28,13 +28,16 @@ const AddProduct = () => {
       productphotoUrl,
     };
 
-    fetch("https://teach-wares-server-imalriyad.vercel.app/products", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newProduct),
-    })
+    fetch(
+      "https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {

@@ -50,7 +50,9 @@ const Navbar = () => {
   }, [isDark]);
 
   useEffect(() => {
-    fetch(`https://teach-wares-server-imalriyad.vercel.app/cart/${user?.email}`)
+    fetch(
+      `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/cart/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setCartItemLength(data));
   }, [user?.email, cartItem, cartItemLength]);
@@ -138,7 +140,7 @@ const Navbar = () => {
                 <span className="font-bold text-[#000] text-lg">
                   {cartItemLength.length} Items
                 </span>
-               
+
                 <div className="card-actions">
                   <Link
                     to={"/Cart"}
