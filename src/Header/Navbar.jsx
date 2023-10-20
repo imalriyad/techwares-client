@@ -1,4 +1,9 @@
-import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Context";
+import toast from "react-hot-toast";
+import auth from "../firebase/firebase.config";
+import { signOut } from "firebase/auth";
 
 const Navbar = () => {
   const navMenu = ["Home", "Add Product", "About", "Contact"];
@@ -11,6 +16,17 @@ const Navbar = () => {
       {link}
     </NavLink>
   ));
+  const { cartLength, user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logOutHandler = () => {
+    signOut(auth)
+      .then(() => {
+        toast.success("Logout sucessful");
+        navigate("/Login");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -73,7 +89,9 @@ const Navbar = () => {
                     d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                   />
                 </svg>
-                <span className="badge badge-sm indicator-item">8</span>
+                <span className="badge badge-sm indicator-item">
+                  {cartLength}
+                </span>
               </div>
             </label>
             <div
@@ -95,30 +113,42 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="dropdown dropdown-end  ">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li className="btn text-mainColor font-bold">
-                <p>Logout</p>
-              </li>
-            </ul>
-          </div>
+          {!user ? (
+            <Link to={"/Login"}>
+              <button className="btn md:btn-md btn-sm md:px-8 text-secondColor bg-mainColor hover:bg-mainColor">
+                Login
+              </button>
+            </Link>
+          ) : (
+            <div className="dropdown dropdown-end  ">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-12 rounded-full border-2 border-[#ffff]">
+                {user?.photoURL ? (
+                  <img src={`${user?.photoURL}`} alt="" />
+                ) : (
+                  <img src="https://i.ibb.co/3CNtLPY/blankdp.png" />
+                )}
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li className="btn bg-mainColor text-secondColor hover:bg-mainColor font-bold">
+                  {user.displayName}
+                </li>
+
+                <li
+                  onClick={logOutHandler}
+                  className="btn bg-mainColor hover:bg-mainColor  font-bold"
+                >
+                  <span className="text-secondColor hover:text-secondColor">
+                    Logout
+                  </span>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

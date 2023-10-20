@@ -1,11 +1,18 @@
 import { useLoaderData } from "react-router-dom";
 import Card from "../Brands/Card";
 import swal from "sweetalert";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Context/Context";
 
 const Cart = () => {
   const cartProduct = useLoaderData();
+  const {setCartLength} = useContext(AuthContext)
   const [product, setProduct] = useState(cartProduct);
+
+  useEffect(()=>{
+    setCartLength(product.length)
+  },[product.length,setCartLength])
+  
   const deletebtn = (id) => {
     swal({
       title: "Are you sure?",
@@ -30,6 +37,7 @@ const Cart = () => {
                 (item) => item._id !== id
               );
               setProduct(remainigProduct);
+              
             }
           });
       }

@@ -3,20 +3,22 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
+
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
+
   const navaigate = useNavigate();
   const goBack = () => {
     navaigate(-1);
   };
 
-  const handleAddCart = (CartProduct) => {
+  const handleAddCart = (cartProduct) => {
     fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(CartProduct),
+      body: JSON.stringify(cartProduct),
     })
       .then((res) => res.json())
       .then((data) => {
