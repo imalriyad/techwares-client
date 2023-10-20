@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import Rating from "react-rating";
 import { Link } from "react-router-dom";
+import { TbCurrencyTaka } from "react-icons/tb";
+
 const Card = ({ item, deletebtn }) => {
   const {
     _id,
@@ -25,11 +27,7 @@ const Card = ({ item, deletebtn }) => {
               {productName}
             </p>
             <p className="flex items-center font-sans text-base antialiased font-medium leading-relaxed text-blue-gray-900">
-              <img
-                src="https://i.postimg.cc/vTTtnf2T/taka-2.png"
-                alt=""
-                className="w-4"
-              />{" "}
+              <TbCurrencyTaka className="text-xl"/>
               {productPrice}
             </p>
           </div>
@@ -74,7 +72,7 @@ const Card = ({ item, deletebtn }) => {
           />
 
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-            {productDescription?.slice(0,99)}. . .
+            {productDescription?.slice(0, 99)}. . .
           </p>
         </div>
         <div className="p-6 flex gap-5 pt-0">

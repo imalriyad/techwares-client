@@ -74,7 +74,7 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/products/update/${params.id}`),
       },
       {
-        path: "/cart",
+        path: "/Cart",
         element: (
           <PrivateRoute>
             <Cart></Cart>

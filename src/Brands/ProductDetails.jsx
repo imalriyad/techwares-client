@@ -3,6 +3,7 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
+import { TbCurrencyTaka } from "react-icons/tb";
 import { useContext } from "react";
 import { AuthContext } from "../Context/Context";
 
@@ -60,11 +61,7 @@ const ProductDetails = () => {
               {loadedProduct.productName}
             </p>
             <p className="flex items-center font-sans md:text-2xl text-lg antialiased font-medium leading-relaxed text-blue-gray-900">
-              <img
-                src="https://i.postimg.cc/vTTtnf2T/taka-2.png"
-                alt=""
-                className="w-5"
-              />{" "}
+            <TbCurrencyTaka className="text-3xl"/>
               {loadedProduct.productPrice}
             </p>
           </div>

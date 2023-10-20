@@ -15,6 +15,9 @@ const Layout = () => {
   pathname === "/Add%20Product"
     ? (document.title = `TechWares ${pathname.replace("/", " | ").replace(/%20/g, ' ')}`)
     : pathname;
+  pathname === "/Cart"
+    ? (document.title = `TechWares ${pathname.replace("/", " | ")}`)
+    : pathname;
 
   state ? (document.title = state) : "";
 

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Context/Context";
 import toast from "react-hot-toast";
@@ -30,15 +30,24 @@ const Navbar = () => {
       .catch((err) => console.log(err));
   };
 
-  const [isDark, setDark] = useState(false);
-  if (isDark) {
-    document.body.style.backgroundColor = "black";
-    document.body.style.color = "white";
-  }
-  if (!isDark) {
-    document.body.style.backgroundColor = "white";
-    document.body.style.color = "black";
-  }
+  const initialTheme = localStorage.getItem("isDark") === "true";
+  const [isDark, setDark] = useState(initialTheme);
+
+  const toggleDarkMode = () => {
+    const newIsDark = !isDark;
+    setDark(newIsDark);
+    localStorage.setItem("isDark", newIsDark);
+  };
+
+  useEffect(() => {
+    if (isDark) {
+      document.body.style.backgroundColor = "black";
+      document.body.style.color = "white";
+    } else {
+      document.body.style.backgroundColor = "white";
+      document.body.style.color = "black";
+    }
+  }, [isDark]);
 
   return (
     <div>
@@ -84,7 +93,7 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end ">
-          <div onClick={() => setDark(!isDark)}>
+          <div onClick={toggleDarkMode}>
             {" "}
             {isDark ? (
               <MdOutlineLightMode className="text-[#ffff] text-3xl cursor-pointer"></MdOutlineLightMode>
@@ -122,7 +131,7 @@ const Navbar = () => {
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
                   <Link
-                    to={"/cart"}
+                    to={"/Cart"}
                     className="btn bg-mainColor hover:bg-mainColor text-[#ffff] btn-block"
                   >
                     {" "}

@@ -23,7 +23,7 @@ const LoginGoogle = () => {
   return (
     <div>
       <div className="flex flex-col w-full border-opacity-50">
-        <div className="divider">OR</div>
+        <div className="divider text-[#000000] ">OR</div>
         <button
           onClick={googlelogin}
           className="btn bg-base-300 flex items-center"

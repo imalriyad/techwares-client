@@ -28,12 +28,12 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="mx-auto bg-secondColor max-w-md rounded-md pt-4 md:mt-16  ">
+      <div className="mx-auto text-[#000000] bg-secondColor max-w-md rounded-md pt-4 md:mt-16  ">
         <div className="md:p-10 px-4 mx-auto flex flex-col gap-6 max-w-md">
           <form onSubmit={handleSignIn} className="flex flex-col gap-6">
             <h1 className="text-4xl text-center font-bold mb-3">Login</h1>
 
-            <label htmlFor="" className="font-medium">
+            <label htmlFor="" className="font-medium" >
               Your Email:
               <input
                 type="email"
@@ -44,7 +44,7 @@ const Login = () => {
               />
             </label>
 
-            <label htmlFor="" className="font-medium relative">
+            <label htmlFor="" className="font-medium relative ">
               Password:
               <input
                 type={showPass ? "text" : "password"}
@@ -52,7 +52,7 @@ const Login = () => {
                 name="password"
                 placeholder="Enter your password"
                 className="input
-        mt-2 input-bordered font-normal text-sm w-full focus:outline-none"
+        mt-2 input-bordered font-normal  text-sm w-full focus:outline-none"
               />
               <span onClick={() => setShowPass(!showPass)}>
                 {showPass ? (
@@ -70,7 +70,7 @@ const Login = () => {
               Login
             </button>
           </form>
-          <p>
+          <p >
             Don't have an Account?{" "}
             <span className="underline font-semibold cursor-pointer">
               <Link to={"/SignUp"}>SignUp</Link>
