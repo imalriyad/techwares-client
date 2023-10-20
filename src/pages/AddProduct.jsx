@@ -29,7 +29,7 @@ const AddProduct = () => {
     };
 
     fetch(
-      "https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products",
+      "https://teach-wares-server-6zymhv5sd-imalriyad.vercel.app/products",
       {
         method: "POST",
         headers: {

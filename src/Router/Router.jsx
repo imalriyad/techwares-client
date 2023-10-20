@@ -52,7 +52,7 @@ const router = createBrowserRouter([
         element: <BrandProduct></BrandProduct>,
         loader: ({ params }) =>
           fetch(
-            `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products/brands/${params.brands}`
+            `https://teach-wares-server-6zymhv5sd-imalriyad.vercel.app/products/brands/${params.brands}`
           ),
       },
       {
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products/${params.id}`
+            `https://teach-wares-server-6zymhv5sd-imalriyad.vercel.app/products/${params.id}`
           ),
       },
       {
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/products/update/${params.id}`
+            `https://teach-wares-server-6zymhv5sd-imalriyad.vercel.app/products/update/${params.id}`
           ),
       },
       {

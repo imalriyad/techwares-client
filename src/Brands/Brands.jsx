@@ -7,7 +7,7 @@ AOS.init();
 const Brands = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
-    fetch("https://teach-wares-server-ejvdc9r68-imalriyad.vercel.app/brands")
+    fetch("https://teach-wares-server-6zymhv5sd-imalriyad.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
