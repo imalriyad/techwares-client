@@ -51,7 +51,9 @@ const router = createBrowserRouter([
         path: "/products/brands/:brands",
         element: <BrandProduct></BrandProduct>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/brands/${params.brands}`),
+          fetch(
+            `https://teach-wares-server-imalriyad.vercel.app/products/brands/${params.brands}`
+          ),
       },
       {
         path: "/products/:id",
@@ -61,7 +63,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/${params.id}`),
+          fetch(
+            `https://teach-wares-server-imalriyad.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/products/update/:id",
@@ -71,7 +75,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/products/update/${params.id}`),
+          fetch(
+            `https://teach-wares-server-imalriyad.vercel.app/products/update/${params.id}`
+          ),
       },
       {
         path: "/Cart",

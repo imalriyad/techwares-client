@@ -36,13 +36,16 @@ const UpdateProduct = () => {
       productRating,
       productphotoUrl,
     };
-    fetch(`http://localhost:5000/products/update/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(UpdatedProduct),
-    })
+    fetch(
+      `https://teach-wares-server-imalriyad.vercel.app/products/update/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(UpdatedProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
@@ -55,10 +58,7 @@ const UpdateProduct = () => {
     <div>
       <div>
         <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
-          <button
-            onClick={goBack}
-            className="btn btn-sm  m-4  border-none"
-          >
+          <button onClick={goBack} className="btn btn-sm  m-4  border-none">
             <AiOutlineArrowLeft className="text-xl" />
             Go Back
           </button>

@@ -7,7 +7,7 @@ AOS.init();
 const Brands = () => {
   const [brands, setBrands] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/brands")
+    fetch("https://teach-wares-server-imalriyad.vercel.app/brands")
       .then((res) => res.json())
       .then((data) => setBrands(data));
   }, []);
@@ -17,7 +17,11 @@ const Brands = () => {
       <h1 className="text-4xl font-bold text-center">All Brands</h1>
       <div className="grid px-4 grid-cols-2 lg:gap-10 gap-5 lg:mt-20 mt-10">
         {brands.map((brand) => (
-          <Link key={brand._id} to={`/products/brands/${brand.name}`} state={brand.name}>
+          <Link
+            key={brand._id}
+            to={`/products/brands/${brand.name}`}
+            state={brand.name}
+          >
             <div
               data-aos="zoom-in"
               data-aos-delay="50"

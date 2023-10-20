@@ -9,26 +9,30 @@ import { AuthContext } from "../Context/Context";
 
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
-  const { user } = useContext(AuthContext);
+  const { user} = useContext(AuthContext);
   const navaigate = useNavigate();
   const goBack = () => {
     navaigate(-1);
   };
 
   const handleAddCart = (cartProduct) => {
-    fetch(`http://localhost:5000/cart/${user.email}`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({...cartProduct,email: user.email}),
-    })
+    fetch(
+      `https://teach-wares-server-imalriyad.vercel.app/cart/${user.email}`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ ...cartProduct, email: user.email }),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.error && data.error.includes("duplicate key")) {
           swal("Eww", "This product is already in your cart", "error");
         } else {
           swal("Yay!", "Product added to the cart successfully", "success");
+          
         }
       })
       .catch(() => {
@@ -61,7 +65,7 @@ const ProductDetails = () => {
               {loadedProduct.productName}
             </p>
             <p className="flex items-center font-sans md:text-2xl text-lg antialiased font-medium leading-relaxed text-blue-gray-900">
-            <TbCurrencyTaka className="text-3xl"/>
+              <TbCurrencyTaka className="text-3xl" />
               {loadedProduct.productPrice}
             </p>
           </div>

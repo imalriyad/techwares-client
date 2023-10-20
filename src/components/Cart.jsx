@@ -5,10 +5,10 @@ import { AuthContext } from "../Context/Context";
 
 const Cart = () => {
   const [cartProduct, setCartProduct] = useState([]);
-  const { user } = useContext(AuthContext);
+  const { user ,setCartItem} = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cart/${user.email}`)
+    fetch(`https://teach-wares-server-imalriyad.vercel.app/cart/${user.email}`)
       .then((res) => res.json())
       .then((data) => setCartProduct(data));
   }, [user.email]);
@@ -16,13 +16,13 @@ const Cart = () => {
   const deletebtn = (id) => {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, This product will be removed from your cart!",
+      text: "This product will be removed from your cart!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/cart/${id}`, {
+        fetch(`https://teach-wares-server-imalriyad.vercel.app/cart/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -37,6 +37,7 @@ const Cart = () => {
                 (item) => item._id !== id
               );
               setCartProduct(remainigProduct);
+              setCartItem(remainigProduct)
             }
           });
       }

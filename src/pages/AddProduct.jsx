@@ -28,7 +28,7 @@ const AddProduct = () => {
       productphotoUrl,
     };
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://teach-wares-server-imalriyad.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -45,10 +45,7 @@ const AddProduct = () => {
   return (
     <div>
       <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
-        <button
-          onClick={goBack}
-          className=" btn-sm btn m-4  border-none "
-        >
+        <button onClick={goBack} className=" btn-sm btn m-4  border-none ">
           <AiOutlineArrowLeft className="text-xl" />
           Go Back
         </button>
@@ -138,11 +135,7 @@ const AddProduct = () => {
             ></textarea>
           </label>
 
-          <input
-            className="btn col-span-2"
-            type="submit"
-            value="Add Product"
-          />
+          <input className="btn col-span-2" type="submit" value="Add Product" />
         </form>
       </div>
     </div>
