@@ -9,7 +9,7 @@ import { AuthContext } from "../Context/Context";
 
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const navaigate = useNavigate();
   const goBack = () => {
     navaigate(-1);
@@ -32,7 +32,6 @@ const ProductDetails = () => {
           swal("Eww", "This product is already in your cart", "error");
         } else {
           swal("Yay!", "Product added to the cart successfully", "success");
-          
         }
       })
       .catch(() => {
