@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginGoogle from "./LoginGoogle";
 import { useContext } from "react";
 import { AuthContext } from "../Context/Context";
@@ -11,6 +11,7 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const { siginInWithEmail } = useContext(AuthContext);
   const navigate = useNavigate();
+  const {state} = useLocation()
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -19,7 +20,7 @@ const Login = () => {
       .then(() => {
         e.target.reset();
         toast.success("Logged in Successful");
-        navigate("/");
+        navigate(state? state :'/');
       })
       .catch((error) =>
         toast.error(`${error.message.slice(22).replace(")", "")}`)

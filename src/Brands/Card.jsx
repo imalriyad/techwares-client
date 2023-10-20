@@ -89,6 +89,7 @@ const Card = ({ item, deletebtn }) => {
             <>
               <Link
                 to={`/products/${_id}`}
+                state={productName}
                 className="flex gap-1 justify-center w-full select-none rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold bg-mainColor text-[#fff] uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button"
               >
@@ -101,6 +102,7 @@ const Card = ({ item, deletebtn }) => {
               </Link>
               <Link
                 to={`/products/update/${_id}`}
+                state={productName}
                 className="flex flex-row w-full gap-1 justify-center select-none bg-mainColor text-[#fff] rounded-lg  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                 type="button"
               >
