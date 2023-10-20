@@ -135,10 +135,10 @@ const Navbar = () => {
               className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
             >
               <div className="card-body">
-                <span className="font-bold text-lg">
-                  {cartItemLength.length}
+                <span className="font-bold text-[#000] text-lg">
+                  {cartItemLength.length} Items
                 </span>
-                <span className="text-info">Subtotal: $999</span>
+               
                 <div className="card-actions">
                   <Link
                     to={"/Cart"}

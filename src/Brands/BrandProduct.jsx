@@ -57,7 +57,7 @@ const BrandProduct = () => {
         modules={[Navigation]}
         className="mySwiper rounded-lg "
       >
-        {loadedProduct.map((item) => (
+        {loadedProduct?.map((item) => (
           <SwiperSlide key={item._id}>
             <div
               style={{
@@ -80,7 +80,7 @@ const BrandProduct = () => {
       
       <div className="grid gap-5 px-4 mt-10 lg:grid-cols-3 grid-cols-1 mx-auto max-w-screen-2xl">
         {
-          loadedProduct.length <1 ? <div className="flex col-span-3 flex-col"><img src="https://i.postimg.cc/rpx4g66R/empty-inbox-outline.png" className="w-40 mx-auto" alt="" /><h1 className="text-center text-2xl md:text-4xl font-bold">NO data Available</h1></div>:
+          loadedProduct?.length <1 ? <div className="flex col-span-3 flex-col"><img src="https://i.postimg.cc/rpx4g66R/empty-inbox-outline.png" className="w-40 mx-auto" alt="" /><h1 className="text-center text-2xl md:text-4xl font-bold">NO data Available</h1></div>:
           loadedProduct?.map(item => <Card key={item._id} item={item}></Card>)
         }
       </div>
