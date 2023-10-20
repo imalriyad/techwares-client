@@ -3,22 +3,24 @@ import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Rating from "react-rating";
 import swal from "sweetalert";
+import { useContext } from "react";
+import { AuthContext } from "../Context/Context";
 
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
-  console.log(loadedProduct);
+  const { user } = useContext(AuthContext);
   const navaigate = useNavigate();
   const goBack = () => {
     navaigate(-1);
   };
 
   const handleAddCart = (cartProduct) => {
-    fetch("http://localhost:5000/cart", {
+    fetch(`http://localhost:5000/cart/${user.email}`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(cartProduct),
+      body: JSON.stringify({...cartProduct,email: user.email}),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -67,8 +69,7 @@ const ProductDetails = () => {
             </p>
           </div>
           <p className=" font-sans lg:text-base lg:mt-10 text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-           {loadedProduct.productDescription
-}
+            {loadedProduct.productDescription}
           </p>
           <Rating
             className="text-[#f39c12] mt-5"

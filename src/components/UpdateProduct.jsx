@@ -5,10 +5,10 @@ import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const products = useLoaderData();
-  const navigate = useNavigate()
-  const goBack = ()=>{
-    navigate(-1)
-  }
+  const navigate = useNavigate();
+  const goBack = () => {
+    navigate(-1);
+  };
   const {
     _id,
     productName,
@@ -16,7 +16,6 @@ const UpdateProduct = () => {
     productType,
     productPrice,
     productRating,
-    productDescription,
     productphotoUrl,
   } = products;
 
@@ -29,14 +28,12 @@ const UpdateProduct = () => {
     const productPrice = form.productPrice.value;
     const productRating = form.productRating.value;
     const productphotoUrl = form.productphotoUrl.value;
-    const productDescription = form.productDescription.value;
     const UpdatedProduct = {
       productName,
       brandName,
       productType,
       productPrice,
       productRating,
-      productDescription,
       productphotoUrl,
     };
     fetch(`http://localhost:5000/products/update/${_id}`, {
@@ -58,12 +55,14 @@ const UpdateProduct = () => {
     <div>
       <div>
         <div className="max-w-screen-md md:p-10 rounded-md bg-mainColor mx-auto md:my-[4%]">
-          
-            <button onClick={goBack} className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral">
-              <AiOutlineArrowLeft className="text-xl" />
-              Go Back
-            </button>
-         
+          <button
+            onClick={goBack}
+            className="hover:btn-neutral btn-sm btn m-4 text-secondColor border-none bg-neutral"
+          >
+            <AiOutlineArrowLeft className="text-xl" />
+            Go Back
+          </button>
+
           <div className="md:text-center px-4">
             <h1 className="text-3xl pt-5 mb-5 font-bold text-secondColor">
               Update Existing Product
@@ -145,7 +144,7 @@ const UpdateProduct = () => {
               />
             </label>
 
-            <label className="flex flex-col col-span-2" htmlFor="">
+            {/* <label className="flex flex-col col-span-2" htmlFor="">
               Description
               <textarea
                 placeholder="Enter product description"
@@ -154,7 +153,7 @@ const UpdateProduct = () => {
                 required
                 className="textarea text-[#000000] focus:outline-none textarea-bordered  textarea-sm w-full "
               ></textarea>
-            </label>
+            </label> */}
 
             <input
               className="btn col-span-2 btn-neutral"

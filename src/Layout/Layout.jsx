@@ -17,7 +17,7 @@ const Layout = () => {
     : pathname;
 
   state ? (document.title = state) : "";
-console.log(state);
+
   return (
     <>
       <div>
