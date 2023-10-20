@@ -74,7 +74,7 @@ const Card = ({ item, deletebtn }) => {
           />
 
           <p className="block font-sans text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-            {productDescription}
+            {productDescription?.slice(0,99)}. . .
           </p>
         </div>
         <div className="p-6 flex gap-5 pt-0">

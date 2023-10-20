@@ -6,7 +6,7 @@ import swal from "sweetalert";
 
 const ProductDetails = () => {
   const loadedProduct = useLoaderData();
-
+  console.log(loadedProduct);
   const navaigate = useNavigate();
   const goBack = () => {
     navaigate(-1);
@@ -67,9 +67,8 @@ const ProductDetails = () => {
             </p>
           </div>
           <p className=" font-sans lg:text-base lg:mt-10 text-sm antialiased font-normal leading-normal text-gray-700 opacity-75">
-            With plenty of talk and listen time, voice-activated Siri access,
-            and an available wireless charging case. With plenty of talk and
-            listen time, voice-activated Siri access
+           {loadedProduct.productDescription
+}
           </p>
           <Rating
             className="text-[#f39c12] mt-5"
