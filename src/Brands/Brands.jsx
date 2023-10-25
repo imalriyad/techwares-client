@@ -14,7 +14,7 @@ const Brands = () => {
 
   return (
     <div className="my-14">
-      <h1 className="text-4xl font-bold text-center">All Brands</h1>
+      <h1 className="text-4xl font-bold text-center">Browse by Brands</h1>
       <div className="grid px-4 grid-cols-2 lg:gap-10 gap-5 lg:mt-20 mt-10">
         {brands.map((brand) => (
           <Link
